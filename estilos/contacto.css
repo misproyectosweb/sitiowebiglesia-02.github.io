@@ -1,0 +1,760 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08/06/2023, 09:15:09 AM
+    Author     : pcgc7
+*/
+
+/*********************** Estilos generales de la página ***********************/
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('../imagenes/fondoAzul.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+:root {
+    --colorAzul: #003958;
+    --colorAzul2: #0075ff;
+    --colorDorado: #b59a47;
+    --colorBlanco: #fff;
+    --colorWhitesmoke: #f5f5f5;
+    --colorAlabaster: #f2f0e6;
+    --colorSilver: #ddd;
+    --colorRojo: #cc0000;
+    --colorRojo2: #f66060;
+    --colorVerde1: #1ed12d;
+    --colorVerde2: #119200;
+}
+::-webkit-scrollbar {display: none;}
+
+/********************** Estilos contenedor de la página ***********************/
+
+.contenedor {
+    display: grid;
+    
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 15.25em repeat(10, 1fr);
+    
+    grid-template-areas:
+    "encabezado encabezado encabezado encabezado encabezado encabezado"
+    "contacto   contacto   contacto   contacto   contacto   contacto"
+    "contacto   contacto   contacto   contacto   contacto   contacto"
+    "contacto   contacto   contacto   contacto   contacto   contacto"
+    "contacto   contacto   contacto   contacto   contacto   contacto"
+    "contacto   contacto   contacto   contacto   contacto   contacto"
+    "contacto   contacto   contacto   contacto   contacto   contacto"
+    "contacto   contacto   contacto   contacto   contacto   contacto"
+    "contacto   contacto   contacto   contacto   contacto   contacto"
+    "contacto   contacto   contacto   contacto   contacto   contacto";
+}
+
+/*************************** Estilos sección header ***************************/
+
+.contenedor .encabezado {
+    grid-area: encabezado;
+    
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    background: linear-gradient(to right, #f5f5f5 0%, #b59a47 100%);
+    box-shadow: 0 0.625em 0.625em 0 rgba(0,0,0,0.5);
+}
+.contenedor .encabezado .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contenedor .encabezado .logo img {
+    width: 65%;
+    padding: 1em;    
+    margin: 1.85em 0;
+}
+.contenedor .encabezado .logo .btnMenu {
+    display: none;
+    color: var(--colorAzul);
+    text-decoration: none;
+    font-size: 1.5em;
+}
+.contenedor .encabezado .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    
+    border-top: 0.0625em solid var(--colorAzul);
+}
+.contenedor .encabezado .menu a {
+    padding: 0.5em 0;
+    margin: 0.5em 0;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--colorAzul);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 0.16em solid transparent;
+}
+.contenedor .encabezado .menu i {
+    margin-right: 0.5em;
+}
+.contenedor .encabezado .menu a:hover {
+    border-bottom: 0.16em solid var(--colorAzul);
+}
+
+/************************* Estilos sección principal **************************/
+
+.contenedor .contenido {
+    grid-area: contacto;
+    
+    margin: 0 auto;
+    max-width: 85%;    
+    padding: 1.25em;
+    background: var(--colorWhitesmoke);
+    border-radius: 0.625em;
+    border: 0.125em solid var(--colorDorado);
+    box-shadow: 0 0.625em 0.625em 0 rgba(0,0,0,0.5);
+}
+.contenedor .contenido h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.3125em 0;
+    color: var(--colorAzul);
+}
+.contenedor .contenido hr {
+    margin-bottom: 1.5em;
+    height: 0.2em;
+    background: var(--colorDorado);
+    border: none;
+}
+
+/************************* Estilos sección formulario *************************/
+
+.contenedorFormulario {
+    display: grid;
+    
+    grid-gap: 0 1.5em;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(1, 1fr);
+}
+.formulario, .ubicacion {
+    background: var(--colorSilver);
+    border-radius: 0.3125em;
+}
+.formulario {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: flex-start;
+}
+.grupo {
+    margin: 0.5em 0;
+}
+.formulario h3, .frmLabel {
+    padding-left: 0.5em;
+    color: var(--colorAzul);
+}
+.frmLabel {
+    font-weight: 700;    
+}
+input[type=text], textarea {
+    font-family: Arial, sans-serif;
+    width: 95%;
+    margin: 0.5em;
+    padding: 0.5em;
+    border: 0.0625em solid var(--colorSilver);
+    border-radius: 0.25em;
+    
+    /* Permite al usuario redimensionar verticalmente el área de texto (y no horizontalmente) */
+    resize: vertical          
+}
+input[type=text] {    
+    height: 2.85em;
+}
+textarea {
+    height: 10em;    
+}
+.frmBoton {
+    width: 30%;
+    height: 2.85em;
+    margin: 0.5em;
+    line-height: 1.75em;
+    border: 0.125em solid var(--colorAzul);
+    background: var(--colorSilver);
+    color: var(--colorAzul);
+    font-weight: 600;    
+    border-radius: 0.25em;    
+}
+.frmBoton:hover {
+    background: var(--colorAzul);
+    color: var(--colorDorado);
+    cursor: pointer;
+}
+
+/*********************** Estilos para las validaciones ************************/
+
+.formulario_grupo_input {
+    position: relative;        
+}
+.formulario_input:focus {
+    border: 0.1875em solid var(--colorAzul2);
+    outline: none;
+    box-shadow: 0.1875em 0 1.875em rgba(163,163,163,0.4);
+}
+.formulario_input_error {
+    font-size: 0.75em;
+    margin: 0;
+    padding-left: 0.75em;
+    color: var(--colorRojo);
+    font-style: italic;
+    font-weight: 600;
+    display: none;
+}
+.formulario_input_error-activo {
+    display: block;
+}
+.formulario_validacion_estado {
+    position: absolute;
+    right: 2.5em;
+    bottom: 1.45em;
+    z-index: 10;
+    font-size: 1em;
+    opacity: 0;
+}
+.formulario_grupo-correcto .formulario_validacion_estado {
+    color: var(--colorVerde1);
+    opacity: 1;
+}
+.formulario_grupo-incorrecto .frmLabel {
+    color: var(--colorRojo);
+}
+.formulario_grupo-incorrecto .formulario_validacion_estado {
+    color: var(--colorRojo);
+    opacity: 1;
+}
+.formulario_grupo-incorrecto .formulario_input {
+    border: 0.1875em solid var(--colorRojo);
+}
+
+/*********************** Estilos para las validaciones en PHP *****************/
+.error {
+    background-color: var(--colorRojo2);      
+}
+.correcto {
+    background-color: var(--colorVerde1);    
+}
+.error, .correcto {
+    font-size: 0.8em;
+    padding: 1em;
+    font-weight: 600;
+    margin: 0;
+}
+
+/****************** Estilos sección mapa y datos de contacto ******************/
+
+.ubicacion {
+    display: flex;
+    flex-direction: column;
+    align-content: flex-start;
+}
+.contenedorMapa h3, .contenedorDatos h3 {
+    color: var(--colorAzul);
+}
+.contenedorMapa p, .contenedorMapa .mapa,
+.contenedorMapa h3, .contenedorDatos h3 {
+    padding: 0 0.5em;
+}
+.contenedorMapa .mapa iframe {
+    height: 21.25em;
+}
+.contenedorMapa p, .contenedorDatos p {
+    font-weight: 700;
+    color: var(--colorAzul);
+}
+.contenedorDatos {
+    padding: 0.75em 0;
+}
+.contenedorDatos .datos {
+    display: grid;
+    grid-template-columns: 4em 1fr;
+    grid-template-rows: repeat(1, 3.25em);
+    align-items: center;
+}
+.contenedorDatos .datos .icono {
+    margin: 0 auto;
+    font-size: 1.75em;
+    color: var(--colorAzul);
+}
+.contenedorDatos a {
+    text-decoration: none;
+    color: var(--colorAzul);
+    font-weight: 700;
+}
+
+/********************** Estilos para dispositivos móviles *********************/
+
+/* Dispositivos con orientación horizontal con una resolución de pantalla mayor a 1424px y menor que 1648px */
+@media screen and (min-width: 1424px) and (max-width: 1647.98px) {
+    .contenedor {
+        grid-template-rows: 14em repeat(9, 1fr);
+    }
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo img {
+        width: 60%;   
+        margin: 1.5em 0;
+    }
+    
+    /* Menú de opciones */
+    .contenedor .encabezado .menu a {
+        font-size: 1em;
+    }
+    .contenedor .encabezado .menu i {
+        margin-right: 0.5em;
+    }  
+    
+    /* Sección de la información de contacto  */
+    .contenedor .contenido {
+        max-width: 90%;
+    }  
+    .contenedor .contenido h1 {
+        font-size: 1.75em;
+    }
+    .contenedor .contenido hr {
+        height: 0.2em;
+        margin-bottom: 1.25em;
+    }
+    
+    /* Formulario */
+    .grupo {
+        margin-top: 0;
+    } 
+    input[type=text], textarea {        
+        margin: 0.4em;    
+    }
+    input[placeholder], textarea {
+        font-size: 0.75em;
+    }
+    .frmBoton {
+        font-size: 0.85em;
+        width: 25%;  
+        margin: 0.75em 0.5em;
+    }
+    
+    /* Mapa */                    
+    .contenedorMapa .mapa iframe {
+        height: 19em;
+    }             
+}
+
+/* Dispositivos con orientación horizontal con una resolución de pantalla mayor a 1200px y menor que 1424px */
+@media screen and (min-width: 1200px) and (max-width: 1423.98px) {
+    .contenedor {
+        grid-template-rows: 13em repeat(9, 1fr);
+    }
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo img {
+        width: 55%;        
+        margin: 1.25em 0;
+    }
+    
+    /* Menú de opciones */
+    .contenedor .encabezado .menu a {
+        font-size: 0.95em;
+    }
+    .contenedor .encabezado .menu i {
+        margin-right: 0.75em;
+    }  
+    
+    /* Sección de la información de contacto  */
+    .contenedor .contenido {
+        max-width: 90%;
+    }  
+    .contenedor .contenido h1 {
+        font-size: 1.5em;
+    }
+    .contenedorFormulario {
+        grid-gap: 0 1em;
+    }
+    .contenedor .contenido hr {
+        height: 0.2em;
+        margin-bottom: 1em;
+    } 
+    .formulario h3, .contenedorDatos h3,
+    .contenedorMapa h3 {
+        font-size: 1em;
+    } 
+    .frmLabel, .contenedorDatos .datos,
+    .contenedorMapa p {
+        font-size: 0.9em;
+    } 
+    
+    /* Formulario */
+    .grupo {
+        margin-top: 0;
+    } 
+    input[type=text], textarea {        
+        margin: 0.4em;    
+    }
+    input[placeholder], textarea {
+        font-size: 0.75em;
+    }
+    .frmBoton {
+        font-size: 0.85em;
+        width: 25%;  
+        margin: 0.75em 0.5em;
+    }
+    
+    /* Mapa */                    
+    .contenedorMapa .mapa iframe {
+        height: 17em;
+    } 
+    
+    /* Mensajes de error */
+    .formulario_validacion_estado {
+        right: 3.25em;
+        bottom: 1.5em;
+        font-size: 0.65em;
+    }
+     .formulario_input_error {
+        font-size: 0.5em;
+    } 
+}
+
+/* Dispositivos con orientación horizontal con una resolución de pantalla mayor a 992px y menor que 1200px */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .contenedor {
+        grid-template-rows: 11.75em repeat(10, 1fr);
+    }
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo img {
+        width: 50%;  
+        margin: 1em 0;
+    }
+    
+    /* Menú de opciones */
+    .contenedor .encabezado .menu a {
+        font-size: 0.85em;
+    }
+    .contenedor .encabezado .menu i {
+        margin-right: 0.75em;
+    }  
+    
+    /* Sección de la información de contacto  */
+    .contenedor .contenido {
+        max-width: 90%;
+    } 
+    .contenedor .contenido h1 {
+        font-size: 1.25em;
+    }
+    .contenedor .contenido hr {
+        height: 0.1em;
+        margin-bottom: 1em;
+    } 
+    .formulario h3, .contenedorDatos h3,
+    .contenedorMapa h3 {
+        font-size: 0.85em;
+    } 
+    .frmLabel, .contenedorDatos .datos,
+    .contenedorMapa p {
+        font-size: 0.75em;
+    }
+    
+    /* Formulario */
+    .grupo {
+        margin-top: 0;
+    } 
+    input[type=text], textarea {        
+        margin: 0.3em;        
+    }
+    input[placeholder], textarea {
+        font-size: 0.75em;
+    }
+    .frmBoton {
+        font-size: 0.85em;
+        width: 25%;  
+        margin: 0.75em 0.5em;
+    }
+    
+    /* Mapa */
+    .contenedorFormulario .ubicacion {
+        margin-top: 0.75em;
+    }                
+    .contenedorMapa .mapa iframe {
+        height: 17em;
+    } 
+    
+    /* Mensajes de error */
+    .formulario_validacion_estado {
+        right: 3.25em;
+        bottom: 1.1em;
+        font-size: 0.65em;
+    }
+     .formulario_input_error {
+        font-size: 0.5em;
+    }  
+}
+
+/* Estilo para dispositivos con tamaño de pantalla mayor a 768px y menor que 992px */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .contenedor {
+        grid-template-rows: 10.25em repeat(10, 1fr);
+    }
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo img {
+        width: 45%;  
+        margin: 0.75em 0;
+    }
+    
+    /* Menú de opciones */
+    .contenedor .encabezado .menu a {
+        font-size: 0.75em;
+    }
+    .contenedor .encabezado .menu i {
+        margin-right: 0.75em;
+    }  
+    
+    /* Sección de la información de contacto  */
+    .contenedor .contenido {
+        max-width: 90%;
+    } 
+    .contenedor .contenido h1 {
+        font-size: 1.25em;
+    }
+    .contenedor .contenido hr {
+        height: 0.1em;
+        margin-bottom: 0.5em;
+    }  
+    .formulario h3, .contenedorDatos h3,
+    .contenedorMapa h3 {
+        font-size: 0.85em;
+    } 
+    .frmLabel, .contenedorDatos .datos,
+    .contenedorMapa p {
+        font-size: 0.75em;
+    }
+        
+    /* Formulario */
+    .contenedor .contenido .contenedorFormulario {
+        display: flex;
+        flex-direction: column;        
+    }
+    .grupo {
+        margin-top: 0;
+    } 
+    input[type=text], textarea {        
+        margin: 0.3em;        
+    }
+    input[placeholder], textarea {
+        font-size: 0.75em;
+    }
+    .frmBoton {
+        font-size: 0.75em;
+        width: 20%;  
+        margin: 0.75em 0.5em;
+    }
+    
+    /* Mapa */
+    .contenedorFormulario .ubicacion {
+        margin-top: 0.75em;
+    }                
+    .contenedorMapa .mapa iframe {
+        height: 15em;
+    } 
+    
+    /* Mensajes de error */
+    .formulario_validacion_estado {
+        right: 3.25em;
+        bottom: 1.1em;
+        font-size: 0.65em;
+    }
+     .formulario_input_error {
+        font-size: 0.5em;
+    }  
+}
+
+/* Estilo para dispositivos con tamaño de pantalla mayor a 576px y menor que 768px */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .contenedor {
+        grid-template-rows: 9.75em repeat(10, 1fr);
+    } 
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo {
+        justify-content: space-between;
+        margin-right: 1em;                    
+    }    
+    .contenedor .encabezado .logo img {
+        width: 40%;
+        margin: 0.5em 0;
+    }
+    
+    /* Menú de opciones */
+    .contenedor .encabezado .logo .btnMenu {
+        display: inline-block;
+        font-size: 1.25em;                                    
+    }
+    .contenedor .encabezado .menu a {
+        font-size: 0.75em;
+        padding: 0.75em 1em;
+    }
+    .contenedor .encabezado .menu i {
+        margin-right: 0.75em;
+    }
+    
+    /* Sección de la información de contacto  */
+    .contenedor .contenido {
+        max-width: 90%;
+    } 
+    .contenedor .contenido h1 {
+        font-size: 1em;
+    }
+    .contenedor .contenido hr {
+        height: 0.1em;
+        margin-bottom: 0.75em;
+    }  
+    .formulario h3, .contenedorDatos h3,
+    .contenedorMapa h3 {
+        font-size: 0.75em;
+    } 
+    .frmLabel, .contenedorDatos .datos,
+    .contenedorMapa p {
+        font-size: 0.65em;
+    }
+    
+    /* Formulario */
+    .contenedor .contenido .contenedorFormulario {
+        display: flex;
+        flex-direction: column;        
+    }
+    .grupo {
+        margin-top: 0;
+    } 
+    input[type=text], textarea {        
+        margin: 0.3em;        
+    }
+    input[placeholder], textarea {
+        font-size: 0.65em;
+    }    
+    .frmBoton {
+        font-size: 0.65em;
+        width: 20%;  
+        margin: 0.75em 0.5em;
+    }
+    
+    /* Mapa */
+    .contenedorFormulario .ubicacion {
+        margin-top: 0.5em;
+    }                
+    .contenedorMapa .mapa iframe {
+        height: 15em;
+    }
+    
+    /* Mensajes de error */
+    .formulario_validacion_estado {
+        right: 3.25em;
+        bottom: 1.1em;
+        font-size: 0.65em;
+    }
+     .formulario_input_error {
+        font-size: 0.5em;
+    }  
+}
+
+/* Dispositivos con orientación horizontal con una resolución de pantalla máxima de 576px */
+@media screen and (max-width: 575.98px) {
+    .contenedor {
+        grid-template-rows: 6em repeat(10, 1fr);
+    }
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo {
+        justify-content: space-between;
+        margin-right: 1em;                    
+    }  
+    .contenedor .encabezado .logo img {
+        width: 35%;  
+        margin: 0.25em 0;
+    }
+        
+    /* Menú de opciones */
+    .contenedor .encabezado .logo .btnMenu {
+        display: inline-block;
+        font-size: 1.25em;                                    
+    }
+    .contenedor .encabezado .menu a {
+        font-size: 0.75em;
+        padding: 0.75em 1em;
+    }
+    .contenedor .encabezado .menu i {
+        margin-right: 0.75em;
+    }
+        
+    /* Sección de la información de contacto  */
+    .contenedor .contenido {
+        max-width: 90%;
+    }  
+    .contenedor .contenido h1 {
+        font-size: 1em;
+    }
+    .contenedor .contenido hr {
+        height: 0.1em;
+        margin-bottom: 0.75em;
+    }  
+    .formulario h3, .contenedorDatos h3,
+    .contenedorMapa h3 {
+        font-size: 0.75em;
+    }  
+    .frmLabel, .contenedorDatos .datos,
+    .contenedorMapa p {
+        font-size: 0.65em;
+    }
+    
+    /* Formulario */
+    .contenedor .contenido .contenedorFormulario {
+        display: flex;
+        flex-direction: column;        
+    }
+    .grupo {
+        margin-top: 0;
+    } 
+    input[type=text], textarea {        
+        margin: 0.3em;        
+    }
+    input[placeholder], textarea {
+        font-size: 0.65em;
+    }    
+    .frmBoton {
+        font-size: 0.65em;
+        width: 20%;  
+        margin: 0.75em 0.5em;
+    }
+    
+    /* Mapa */
+    .contenedorFormulario .ubicacion {
+        margin-top: 0.5em;
+    }                
+    .contenedorMapa .mapa iframe {
+        height: 15em;
+    }
+            
+    /* Mensajes de error */
+    .formulario_validacion_estado {
+        right: 3.25em;
+        bottom: 1.1em;
+        font-size: 0.65em;
+    }
+     .formulario_input_error {
+        font-size: 0.5em;
+    }      
+}

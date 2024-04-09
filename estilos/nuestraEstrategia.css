@@ -1,0 +1,396 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 08/06/2023, 09:16:18 AM
+    Author     : pcgc7
+*/
+
+/*********************** Estilos generales de la página ***********************/
+
+* {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    background-image: url('../imagenes/fondoCafe.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+:root {
+    --colorAzul: #003958;
+    --colorDorado: #b59a47;
+    --colorBlanco: #fff;
+    --colorWhitesmoke: #f5f5f5;
+    --colorAlabaster: #f2f0e6;
+    --colorSilver: #ccc;
+}
+::-webkit-scrollbar {display: none;}
+
+/********************** Estilos contenedor de la página ***********************/
+
+.contenedor {
+    display: grid;
+    
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: 15.25em repeat(7, 1fr);
+   
+    grid-template-areas:
+    "encabezado encabezado encabezado encabezado encabezado encabezado"
+    "texto      texto      texto      texto      texto      texto"
+    "texto      texto      texto      texto      texto      texto"
+    "texto      texto      texto      texto      texto      texto"
+    "texto      texto      texto      texto      texto      texto"
+    "texto      texto      texto      texto      texto      texto"
+    "texto      texto      texto      texto      texto      texto";
+}
+
+/*************************** Estilos sección header ***************************/
+
+.contenedor .encabezado {
+    grid-area: encabezado;
+    
+    width: 100%;
+    position: fixed;
+    top: 0;
+    z-index: 20;
+    background: linear-gradient(to right, #f5f5f5 0%, #b59a47 100%);
+    box-shadow: 0 0.625em 0.625em 0 rgba(0,0,0,0.5);
+}
+.contenedor .encabezado .logo {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+}
+.contenedor .encabezado .logo img {
+    width: 65%;
+    padding: 1em;
+    margin: 1.85em 0;
+}
+.contenedor .encabezado .logo .btnMenu {
+    display: none;
+    color: var(--colorAzul);
+    text-decoration: none;
+    font-size: 1.5em;
+}
+.contenedor .encabezado .menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    border-top: 0.0625em solid var(--colorAzul);
+}
+.contenedor .encabezado .menu a {
+    padding: 0.5em 0;
+    margin: 0.5em 0;
+    font-size: 1em;
+    font-weight: 700;
+    color: var(--colorAzul);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border-bottom: 0.16em solid transparent;
+}
+.contenedor .encabezado .menu i {
+    margin-right: 0.5em;
+}
+.contenedor .encabezado .menu a:hover {
+    border-bottom: 0.16em solid var(--colorAzul);
+}
+
+/************************* Estilos sección principal **************************/
+
+.contenedor .contenido {
+    grid-area: texto;
+    
+    margin: 0 auto;
+    max-width: 85%;
+    padding: 1.25em;
+    background: var(--colorWhitesmoke);
+    border-radius: 0.625em;
+    border: 0.125em solid var(--colorDorado);
+    box-shadow: 0 0.625em 0.625em 0 rgba(0,0,0,0.5);
+}
+.contenedor .contenido article h1 {
+    font-size: 2em;
+    font-weight: bold;
+    margin: 0.3125em 0;
+    color: var(--colorAzul);
+}
+.contenedor .contenido article hr {
+    margin-bottom: 1.5em;
+    height: 0.2em;
+    background: var(--colorDorado);
+    border: none;
+}
+.contenedor .contenido article p {
+    font-size: 1em;
+    text-indent: 1.5em;
+    text-align: justify;
+    margin: 0.5em 0;
+}
+.contenedor .contenido article figure {
+    margin: 0;
+}
+.contenedor .contenido article figure img {
+    width: 20%;
+    float: left;
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
+
+/********************* Estilos para dispositivos móviles **********************/
+
+/* Dispositivos con orientación horizontal con una resolución de pantalla mayor a 1424px y menor que 1648px */
+@media screen and (min-width: 1424px) and (max-width: 1647.98px) {
+    .contenedor {
+        grid-template-rows: 14em repeat(7, 1fr);
+    }
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo img {
+        width: 60%;       
+        margin: 1.5em 0;
+    }
+        
+    /* Menú de opciones */
+    .contenedor .encabezado .menu a {
+        font-size: 1em;
+    }
+    
+    /* Sección del artículo */
+    .contenedor .contenido {
+        max-width: 85%;
+    }
+    .contenedor .contenido article figure img {
+        width: 20%;
+    }        
+    .contenedor .contenido article h1 {
+        font-size: 1.75em;
+    }
+    .contenedor .contenido article hr {
+        height: 0.2em;
+        margin-bottom: 1em;
+    }
+    .contenedor .contenido article p {
+        font-size: 1em;
+    } 
+}
+
+/* Dispositivos con orientación horizontal con una resolución de pantalla mayor a 1200px y menor que 1424px */
+@media screen and (min-width: 1200px) and (max-width: 1423.98px) {
+    .contenedor {
+        grid-template-rows: 13em repeat(7, 1fr);
+    }
+        
+    /* Encabezado */
+    .contenedor .encabezado .logo img {
+        width: 55%;
+        margin: 1.25em 0;        
+    }
+        
+    /* Menú de opciones */
+    .contenedor .encabezado .menu a {
+        font-size: 0.95em;
+    }
+    
+    /* Sección del artículo */
+    .contenedor .contenido {
+        max-width: 85%;
+    }
+    .contenedor .contenido article figure img {
+        width: 25%;
+    }        
+    .contenedor .contenido article h1 {
+        font-size: 1.75em;
+    }
+    .contenedor .contenido article hr {
+        height: 0.2em;
+        margin-bottom: 1em;
+    }
+    .contenedor .contenido article p {
+        font-size: 0.95em;
+    }     
+}
+
+/* Dispositivos con orientación horizontal con una resolución de pantalla mayor a 992px y menor que 1200px */
+@media screen and (min-width: 992px) and (max-width: 1199.98px) {
+    .contenedor {
+        grid-template-rows: 11.5em repeat(7, 1fr);
+    }
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo img {
+        width: 50%;    
+        margin: 1em 0;
+    }
+        
+    /* Menú de opciones */
+    .contenedor .encabezado .menu a {
+        font-size: 0.85em;
+    }
+    
+    /* Sección del artículo */
+    .contenedor .contenido {
+        max-width: 85%;
+    }
+    .contenedor .contenido article figure img {
+        width: 30%;
+    }        
+    .contenedor .contenido article h1 {
+        font-size: 1.5em;
+    }
+    .contenedor .contenido article hr {
+        height: 0.1em;
+        margin-bottom: 1em;
+    }
+    .contenedor .contenido article p {
+        font-size: 0.95em;
+    }                
+}
+
+/* Estilo para dispositivos con tamaño de pantalla mayor a 768px y menor que 992px */
+@media screen and (min-width: 768px) and (max-width: 991.98px) {
+    .contenedor {
+        grid-template-rows: 10.25em repeat(7, 1fr);
+    }
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo img {
+        width: 45%;      
+        margin: 0.75em 0;
+    }
+        
+    /* Menú de opciones */
+    .contenedor .encabezado .menu a {
+        font-size: 0.75em;
+    }
+                        
+    /* Sección del artículo */
+    .contenedor .contenido {
+        max-width: 90%;
+    }
+    .contenedor .contenido article figure img {
+        width: 35%;
+    }        
+    .contenedor .contenido article h1 {
+        font-size: 1.25em;
+    }
+    .contenedor .contenido article hr {
+        height: 0.1em;
+        margin-bottom: 0.75em;
+    }
+    .contenedor .contenido article p {
+        font-size: 0.75em;
+    }               
+}
+
+/* Estilo para dispositivos con tamaño de pantalla mayor a 576px y menor que 768px */
+@media screen and (min-width: 576px) and (max-width: 767.98px) {
+    .contenedor {
+        grid-template-rows: 6.75em repeat(7, 1fr);
+    }
+        
+    /* Encabezado */
+    .contenedor .encabezado .logo {
+        justify-content: space-between;
+        margin-right: 1em;                    
+    }
+    .contenedor .encabezado .logo img {
+        width: 40%;   
+        margin: 0.5em 0;
+    }
+    
+    /* Menú de opciones */
+    .contenedor .encabezado .logo .btnMenu {
+        display: inline-block;
+        font-size: 1.25em;
+    }
+    .contenedor .encabezado .menu {
+        display: flex;
+        flex-direction: column;
+                        
+        justify-content: flex-start ;        
+    }
+    .contenedor .encabezado .menu a {
+        font-size: 0.75em;
+        padding: 0.75em 1em;
+    }
+    .contenedor .encabezado .menu i {
+        margin-right: 0.75em;
+    }
+                            
+    /* Sección del artículo */
+    .contenedor .contenido {
+        max-width: 90%;
+    }
+    .contenedor .contenido article figure img {
+        width: 35%;
+    }        
+    .contenedor .contenido article h1 {
+        font-size: 1em;
+    }
+    .contenedor .contenido article hr {
+        height: 0.1em;
+        margin-bottom: 0.75em;
+    }
+    .contenedor .contenido article p {
+        font-size: 0.75em;
+    }                        
+}
+
+/* Dispositivos con orientación horizontal con una resolución de pantalla máxima de 576px */
+@media screen and (max-width: 575.98px) {
+    .contenedor {
+        grid-template-rows: 6em repeat(7, 1fr);
+    }
+    
+    /* Encabezado */
+    .contenedor .encabezado .logo {
+        justify-content: space-between;
+        margin-right: 1em;                    
+    }
+    .contenedor .encabezado .logo img {
+        width: 35%;  
+        margin: 0.25em 0;
+    }
+    
+    /* Menú de opciones */
+    .contenedor .encabezado .logo .btnMenu {
+        display: inline-block;
+        font-size: 1.25em;
+    }
+    .contenedor .encabezado .menu {
+        display: flex;
+        flex-direction: column;
+                        
+        justify-content: flex-start ;        
+    }
+    .contenedor .encabezado .menu a {
+        font-size: 0.75em;
+        padding: 0.75em 1em;
+    }
+    .contenedor .encabezado .menu i {
+        margin-right: 0.75em;
+    }
+    
+    /* Sección del artículo */
+    .contenedor .contenido {
+        max-width: 90%;
+    }
+    .contenedor .contenido article figure img {
+        width: 35%;
+    }        
+    .contenedor .contenido article h1 {
+        font-size: 1em;
+    }
+    .contenedor .contenido article hr {
+        height: 0.1em;
+        margin-bottom: 0.75em;
+    }
+    .contenedor .contenido article p {
+        font-size: 0.75em;
+    }
+}
